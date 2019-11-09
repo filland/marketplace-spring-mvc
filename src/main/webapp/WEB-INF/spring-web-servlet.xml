@@ -14,6 +14,8 @@
     <context:component-scan base-package="com.trade.service.dao"/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
+    <context:property-placeholder location="classpath:db.properties" />
+
     <!--  =========== JSP ================= -->
     <!--<bean-->
     <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
@@ -80,10 +82,15 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+
     <bean name="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
         <constructor-arg>
             <bean class="com.zaxxer.hikari.HikariConfig">
-                <constructor-arg name="propertyFileName" value="db.properties"/>
+                <property name="username" value="${dataSource.user}"/>
+                <property name="password" value="${dataSource.password}"/>
+                <property name="jdbcUrl" value="${jdbcUrl}"/>
+                <property name="maximumPoolSize" value="${dataSource.maxPoolSize}"/>
+                <property name="minimumIdle" value="${dataSource.minIdle}"/>
             </bean>
         </constructor-arg>
     </bean>

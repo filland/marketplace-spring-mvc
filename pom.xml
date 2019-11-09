@@ -40,12 +40,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!--<dependency>-->
-		<!--<groupId>javax.servlet</groupId>-->
-		<!--<artifactId>jstl</artifactId>-->
-		<!--<version>${jstl.version}</version>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
